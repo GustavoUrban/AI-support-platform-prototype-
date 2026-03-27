@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+</head>
+<body>
+  <h1>Analytics</h1>
+  <button onclick="loadAnalytics()">Carregar</button>
+  <pre id="result"></pre>
+
+  <script>
+    async function loadAnalytics() {
+      const result = document.getElementById("result");
+
+      try {
+        const response = await fetch("http://127.0.0.1:8000/analytics");
+        const data = await response.json();
+        result.textContent = JSON.stringify(data, null, 2);
+      } catch (error) {
+        result.textContent = "Erro ao carregar analytics: " + error;
+      }
+    }
+  </script>
+</body>
+</html>

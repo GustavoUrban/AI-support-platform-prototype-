@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tickets</title>
+</head>
+<body>
+
+<h1>Histórico de Tickets</h1>
+
+<table border="1">
+
+<thead>
+<tr>
+    <th>ID</th>
+    <th>Mensagem</th>
+    <th>Categoria</th>
+    <th>Prioridade</th>
+    <th>Sentimentos</th>
+</tr>
+</thead>
+
+<tbody id="ticketsTable"> </tbody>
+
+</table>
+    <script>
+        async function loadTickets(){
+            const response = await fetch("http://127.0.0.1:8000/tickets")
+            const tickets = await response.json()
+            const table = document.getElementById("ticketsTable")
+
+            tickets.forEach(ticket => {
+                const row = document.createElement("tr")
+
+                row.innerHTML = `
+                <td>${ticket.id}</td>
+                <td>${ticket.message}</td>
+                <td>${ticket.categoria}</td>
+                <td>${ticket.prioridade}</td>
+                <td>${ticket.sentimento}</td>
+                `
+
+                table.appendChild(row)
+            })
+        }
+
+    loadTickets()
+    </script>
+
+
+</body>
+</html>

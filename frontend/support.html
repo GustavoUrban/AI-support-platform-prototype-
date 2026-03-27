@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Support</title>
+</head>
+<body>
+  <h1>Criar Ticket</h1>
+
+  <textarea id="message" rows="6" cols="60" placeholder="Digite o problema"></textarea>
+  <br><br>
+  <button onclick="sendTicket()">Enviar</button>
+
+  <pre id="result"></pre>
+
+  <script>
+    async function sendTicket() {
+      const message = document.getElementById("message").value;
+      const result = document.getElementById("result");
+
+      try {
+        const response = await fetch("http://127.0.0.1:8000/ticket", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ message })
+        });
+
+        const data = await response.json();
+        result.textContent = JSON.stringify(data, null, 2);
+      } catch (error) {
+        result.textContent = "Erro ao enviar ticket: " + error;
+      }
+    }
+  </script>
+</body>
+</html>

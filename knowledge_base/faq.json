@@ -1,0 +1,18 @@
+[
+ {
+  "pergunta": "pagamento recusado",
+  "resposta": "Pagamentos podem ser recusados por saldo insuficiente ou bloqueio do banco emissor."
+ },
+ {
+  "pergunta": "cartão roubado",
+  "resposta": "Se seu cartão foi roubado, bloqueie imediatamente pelo aplicativo e entre em contato com o suporte."
+ },
+ {
+  "pergunta": "erro no aplicativo",
+  "resposta": "Tente atualizar o aplicativo ou reinstalá-lo."
+ },
+ {
+  "pergunta": "não consigo entrar na conta",
+  "resposta": "Verifique sua senha ou utilize a opção de recuperação de conta."
+ }
+]
